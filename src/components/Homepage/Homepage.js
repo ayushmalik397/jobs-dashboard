@@ -2,6 +2,7 @@ import React from "react";
 import "./Homepage.css";
 import HomeImage from "../../images/home-cover.jpg";
 import Company from "../../images/microsoft.svg";
+import { Link } from "react-router-dom";
 
 function Homepage() {
   return (
@@ -10,7 +11,9 @@ function Homepage() {
         <div className="cover-title">
           Welcome to My<span style={{ color: "#43AFFF" }}>Jobs</span>
           <div>
-            <button className="blue-btn">Get Started</button>
+            <Link to="/dashboard/recdash">
+              <button className="blue-btn">Get Started</button>
+            </Link>
           </div>
         </div>
         <div className="image">
