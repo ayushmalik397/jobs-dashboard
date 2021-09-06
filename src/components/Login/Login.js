@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./login.css";
 import { Link, useHistory } from "react-router-dom";
-import axios from 'axios'
+import axios from "axios";
 
 function Login(props) {
   const history = useHistory();
@@ -11,31 +11,37 @@ function Login(props) {
   const [bColor2, setbColor2] = useState("");
   const [error, setError] = useState(false);
 
+  function updateError() {
+    setError(true);
+    setbColor("2px solid red");
+    setbColor2("2px solid red");
+  }
+
   function handleLoginSubmit() {
     if (email === "" || password === "") {
-      setbColor("2px solid red");
-      setbColor2("2px solid red");
-      setError(true);
+      updateError();
     }
     axios({
-      method: 'post',
-      url: 'https://jobs-api.squareboat.info/api/v1/auth/login',
+      method: "post",
+      url: "https://jobs-api.squareboat.info/api/v1/auth/login",
       data: {
         email,
         password,
-      }
-    }).then((res) => {
-      if(res.data.code === 200){
-        localStorage.setItem('token', res.data.data.token );
-        localStorage.setItem('name', res.data.data.name );
-        props.trigLogin()
-        history.push("/dashboard/recdash")
-      }else{
-        setError(true)
-      }
-    }).catch((err) => {
-      setError(true)
+      },
     })
+      .then((res) => {
+        if (res.data.code === 200) {
+          localStorage.setItem("token", res.data.data.token);
+          localStorage.setItem("name", res.data.data.name);
+          props.trigLogin();
+          history.push("/dashboard/recdash");
+        } else {
+          updateError();
+        }
+      })
+      .catch((err) => {
+        updateError();
+      });
   }
   return (
     <div className="login">

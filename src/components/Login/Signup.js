@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import RecImage from "../../images/human-resources.png";
 import User from "../../images/user.png";
-import axios from 'axios'
+import axios from "axios";
 import "./login.css";
 
 function Signup() {
   const history = useHistory();
-  const [role, setRole] = useState(0)
-  const [recClass, setRecclass] = useState("opt-box")
-  const [canClass, setCanclass] = useState("opt-box")
+  const [role, setRole] = useState(0);
+  const [recClass, setRecclass] = useState("opt-box");
+  const [canClass, setCanclass] = useState("opt-box");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [CPassword, setCPassword] = useState("");
@@ -21,44 +21,50 @@ function Signup() {
   const [bColor4, setbColor4] = useState("");
   const [error, setError] = useState(false);
 
+  function updateError() {
+    setError(true);
+    setbColor("2px solid red");
+    setbColor2("2px solid red");
+    setbColor3("2px solid red");
+  }
+
   function handleSignup() {
     if (email === "" || name === "" || password === "") {
-      setError(true);
-      setbColor("2px solid red");
-      setbColor2("2px solid red");
-      setbColor3("2px solid red");
+      updateError();
     }
     axios({
-      method: 'post',
-      url: 'https://jobs-api.squareboat.info/api/v1/auth/register',
+      method: "post",
+      url: "https://jobs-api.squareboat.info/api/v1/auth/register",
       data: {
         userRole: role,
         email,
         name,
         password,
         confirmPassword: CPassword,
-        skills
-      }
-    }).then((res) => {
-      if(res.data.code === 201){
-        history.push("/login")
-      }else{
-        setError(true)
-      }
-    }).catch((err) => {
-      setError(true)
+        skills,
+      },
     })
+      .then((res) => {
+        if (res.data.code === 201) {
+          history.push("/login");
+        } else {
+          updateError();
+        }
+      })
+      .catch((err) => {
+        updateError();
+      });
   }
 
   useEffect(() => {
-    if(role === 0){
-      setRecclass("opt-box active")
-      setCanclass("opt-box")
-    }else if(role === 1){
-      setCanclass("opt-box active")
-      setRecclass("opt-box")
+    if (role === 0) {
+      setRecclass("opt-box active");
+      setCanclass("opt-box");
+    } else if (role === 1) {
+      setCanclass("opt-box active");
+      setRecclass("opt-box");
     }
-  },[role])
+  }, [role]);
 
   return (
     <div>
@@ -130,7 +136,8 @@ function Signup() {
             <div className="pass-right" style={{ width: "47%" }}>
               <label>Confirm Password*</label>
               <div>
-                <input type="password"
+                <input
+                  type="password"
                   value={CPassword}
                   onFocus={() => setbColor3("2px solid #43afff")}
                   onBlur={() => setbColor3("")}
@@ -138,7 +145,8 @@ function Signup() {
                   style={{
                     border: bColor3,
                   }}
-                  placeholder="Enter your password" />
+                  placeholder="Enter your password"
+                />
               </div>
             </div>
           </div>
@@ -168,7 +176,9 @@ function Signup() {
           </button>
           <p style={{ marginTop: "10px", fontSize: "14px" }}>
             Have an account?{" "}
+            <Link to="/login">
               <span style={{ color: "#43AFFF" }}>Login</span>
+            </Link>
           </p>
         </div>
       </div>

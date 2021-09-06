@@ -85,3 +85,14 @@
   margin-right: 10px;
   height: 30px;
 }
+
+.logout-message {
+  background: white;
+  position: absolute;
+  top: 50px;
+  right: 30px;
+  font-size: 10px;
+  padding: 5px 13px;
+  border-radius: 5px;
+  z-index: 1;
+}

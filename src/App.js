@@ -1,11 +1,6 @@
 import "./App.css";
 import Homepage from "./components/Homepage/Homepage";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Login from "./components/Login/Login";
 import Signup from "./components/Login/Signup";
 import Forget from "./components/Login/Forget";
@@ -17,6 +12,7 @@ import Down from "./images/down.png";
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [logClass, setLogclass] = useState("logout-box");
+  const [logMessage, setLogMessage] = useState(false);
   function trigForget(tokenStr) {
     localStorage.setItem("passToken", tokenStr);
   }
@@ -26,6 +22,7 @@ function App() {
   function logout() {
     localStorage.removeItem("token");
     localStorage.removeItem("name");
+    setLogMessage(true);
     setLoggedIn(false);
   }
   function toggleArrow() {
@@ -41,10 +38,8 @@ function App() {
         <div className="cover">
           <header className="header">
             <div className="left">
-              <Link to="/">
-                <span style={{ color: "white" }}>My</span>
-                <span style={{ color: "#43AFFF" }}>Jobs</span>
-              </Link>
+              <span style={{ color: "white" }}>My</span>
+              <span style={{ color: "#43AFFF" }}>Jobs</span>
             </div>
             <div className="right">
               <Switch>
@@ -97,6 +92,15 @@ function App() {
             </div>
           </header>
         </div>
+        {logMessage && (
+          <div className="logout-message">
+            <span className="close" onClick={() => setLogMessage(false)}>
+              &times;
+            </span>
+            <h3>Logout</h3>
+            <div>You have successfully logged out.</div>
+          </div>
+        )}
         <div className="content">
           <Switch>
             <Route path="/login">

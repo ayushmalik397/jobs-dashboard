@@ -9,6 +9,13 @@ function PostaJobForm() {
   const [bColor, setbColor] = useState("");
   const [bColor2, setbColor2] = useState("");
   const [bColor3, setbColor3] = useState("");
+  const [error, setError] = useState(false);
+  function updateError() {
+    setError(true);
+    setbColor("2px solid red");
+    setbColor2("2px solid red");
+    setbColor3("2px solid red");
+  }
   async function handlePost() {
     if (title !== "" && desc !== "" && loc !== "") {
       const myHeaders = new Headers();
@@ -25,13 +32,11 @@ function PostaJobForm() {
         headers: myHeaders,
         body: JSON.stringify(options),
       });
-      if(res.status === 201){
-        history.push("/dashboard/recdash")
+      if (res.status === 201) {
+        history.push("/dashboard/recdash");
       }
     } else {
-      setbColor("2px solid red");
-      setbColor2("2px solid red");
-      setbColor3("2px solid red");
+      updateError();
     }
   }
 
@@ -85,7 +90,9 @@ function PostaJobForm() {
               }}
               placeholder="Enter job title"
             />
-            <label className="red-text">All fields are mandatory.</label>
+            {error && (
+              <label className="red-text">All fields are mandatory.</label>
+            )}
           </div>
         </div>
       </form>
