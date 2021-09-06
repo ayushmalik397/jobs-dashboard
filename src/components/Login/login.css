@@ -1,0 +1,61 @@
+.login {
+  margin: auto;
+  width: 30%;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  font-weight: 400;
+}
+
+.control {
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+input,
+textarea {
+  padding: 8px;
+  font-size: 12px;
+  border: 2px solid rgb(226, 226, 226);
+  border-radius: 5px;
+  width: 95%;
+  background: #e8e8e833;
+}
+
+input:focus {
+  outline: none;
+}
+
+.login-btn {
+  background: #43afff;
+  padding: 10px 40px;
+  margin-top: 40px;
+  border: 1px solid #43afff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.forget-text {
+  float: right;
+  color: #43afff;
+  cursor: pointer;
+}
+
+.password {
+  display: flex;
+  width: 95%;
+  justify-content: space-between;
+}
+
+.opt-box {
+  background: #43afff;
+  margin-right: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+}
+
+.icon {
+  margin-right: 10px;
+}

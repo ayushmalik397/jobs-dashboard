@@ -1,0 +1,61 @@
+.home {
+  margin: auto;
+  width: 70%;
+  padding-bottom: 30px;
+}
+
+.cover-home {
+  color: white;
+  font-size: 36px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.cover-title {
+  margin-top: 20px;
+  width: 200px;
+}
+
+.blue-btn {
+  padding: 10px 30px;
+  background: #43afff;
+  color: white;
+  border: 1px solid #43afff;
+  border-radius: 5px;
+}
+
+.cards {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.card {
+  width: 30%;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  box-shadow: #557DA526;
+}
+
+h3 {
+  color: #43afff;
+}
+
+.companies {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.companies > img {
+  width: 150px;
+  margin: 0px 10px;
+}
+
+.section-head {
+  font-weight: 600;
+  font-size: 16px;
+}

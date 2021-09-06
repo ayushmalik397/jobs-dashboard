@@ -1,0 +1,70 @@
+.dashboard {
+  margin: auto;
+  width: 80%;
+  padding: 10px;
+  color: white;
+}
+
+.job {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  width: 20%;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  font-size: 10px;
+}
+
+.jobs {
+  display: flex;
+  color: black;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.application-btn {
+  background: #43afff33 0% 0% no-repeat padding-box;
+  border: 1px solid #43afff;
+  border-radius: 5px;
+  opacity: 1;
+  color: black;
+  padding: 5px 8px;
+  font-size: 12px;
+}
+
+.postajob {
+  width: 100%;
+  margin-top: 130px;
+  color: black;
+  text-align: center;
+}
+
+.post-btn {
+  background: #43afff;
+  padding: 10px 40px;
+  border: 1px solid #43afff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.postajob-form {
+  margin: auto;
+  width: 30%;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  font-weight: 400;
+  color: black;
+}
+
+.red-text {
+  float: right;
+  color: red;
+  font-size: 12px;
+}
