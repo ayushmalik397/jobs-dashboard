@@ -55,7 +55,7 @@ function RecruiterDash() {
       loc: "Chennai",
     },
   ]);
-  let arr = [
+  const arr = [
     {
       id: 1,
       head: "UI/UX Designer",
@@ -196,9 +196,149 @@ function RecruiterDash() {
     },
   ];
   useEffect(() => {
+    let JobsArr = [
+      {
+        id: 1,
+        head: "UI/UX Designer",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun.",
+        loc: "Bengaluru",
+      },
+      {
+        id: 2,
+        head: "UI/UX Architech",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun.",
+        loc: "Bengaluru",
+      },
+      {
+        id: 3,
+        head: "UI/UX Manager",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun.",
+        loc: "Bengaluru",
+      },
+      {
+        id: 4,
+        head: "Product Manager",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun.",
+        loc: "Chennai",
+      },
+      {
+        id: 5,
+        head: "Intern",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun.",
+        loc: "Bengaluru",
+      },
+      {
+        id: 6,
+        head: "UI/UX Designer",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun.",
+        loc: "Gurgaon",
+      },
+      {
+        id: 7,
+        head: "ML Engineer",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun.",
+        loc: "Bengaluru",
+      },
+      {
+        id: 8,
+        head: "Automation- Selenium",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun.",
+        loc: "Chennai",
+      },
+      {
+        id: 9,
+        head: "Automation- Selenium",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun.",
+        loc: "Bengaluru",
+      },
+      {
+        id: 10,
+        head: "UI/UX Designer",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun.",
+        loc: "Bengaluru",
+      },
+      {
+        id: 11,
+        head: "UI/UX Designer",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun.",
+        loc: "Bengaluru",
+      },
+      {
+        id: 12,
+        head: "Automation- Selenium",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun.",
+        loc: "Bengaluru",
+      },
+      {
+        id: 13,
+        head: "UI/UX Designer",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun.",
+        loc: "Bengaluru",
+      },
+      {
+        id: 14,
+        head: "UI/UX Designer",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun.",
+        loc: "Gurugaon",
+      },
+      {
+        id: 15,
+        head: "Automation- Selenium",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun.",
+        loc: "Bengaluru",
+      },
+      {
+        id: 16,
+        head: "UI/UX Designer",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun.",
+        loc: "Bengaluru",
+      },
+      {
+        id: 17,
+        head: "UI/UX Designer",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun.",
+        loc: "Bengaluru",
+      },
+      {
+        id: 18,
+        head: "UI/UX Designer",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun.",
+        loc: "Bengaluru",
+      },
+      {
+        id: 19,
+        head: "UI/UX Designer",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun.",
+        loc: "Bengaluru",
+      },
+      {
+        id: 20,
+        head: "UI/UX Designer",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun.",
+        loc: "Ben",
+      },
+      {
+        id: 21,
+        head: "UI/UX Designer",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun.",
+        loc: "Gurgaon",
+      },
+      {
+        id: 22,
+        head: "ML Engineer",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun.",
+        loc: "Bengaluru",
+      },
+      {
+        id: 23,
+        head: "Automation- Selenium",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun.",
+        loc: "Chennai",
+      },
+    ];
     let temp = [];
     for (let i = 8 * (active - 1); i <= 8 * (active - 1) + 7; i++) {
-      temp.push(arr[i]);
+      temp.push(JobsArr[i]);
     }
     setRenderArr(temp);
   }, [active]);
