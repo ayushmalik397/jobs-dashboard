@@ -1,9 +1,19 @@
+import axios from "axios";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
-function Forget() {
+function Forget(props) {
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [bColor, setbColor] = useState("");
+  function handleSubmit() {
+    axios.get(`https://jobs-api.squareboat.info/api/v1/auth/resetpassword?email=${email}`).then((res) => {
+      if(res.data.code === 201) {
+        localStorage.setItem('passToken', res.data.data.token);
+        history.push("/reset")
+      }
+    }).catch(err => console.log(err))
+  }
   return (
     <div className="login">
       <h3>Forget your password?</h3>
@@ -28,9 +38,7 @@ function Forget() {
         </div>
       </div>
       <div style={{ textAlign: "center" }}>
-        <Link to="/reset">
-          <button className="login-btn">Submit</button>
-        </Link>
+          <button className="login-btn" onClick={handleSubmit}>Submit</button>
       </div>
     </div>
   );

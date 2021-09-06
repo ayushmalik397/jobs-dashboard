@@ -1,12 +1,31 @@
+import axios from "axios";
 import React, { useState } from "react";
+import {useHistory} from 'react-router-dom'
 
 function Reset() {
+  const history = useHistory();
   const [password, setPassword] = useState("");
   const [CPassword, setCPassword] = useState("");
   const [bColor, setbColor] = useState("");
   const [bColor2, setbColor2] = useState("");
 
-  function handleReset() {}
+  function handleReset() {
+    axios({
+      method: 'post',
+      url: 'https://jobs-api.squareboat.info/api/v1/auth/resetpassword',
+      data: {
+        password,
+        confirmPassword: CPassword,
+        token: localStorage.getItem('passToken')
+      }
+    }).then((res) => {
+      if(res.data.code === 201){
+        history.push("/login")
+      }else{
+      }
+    }).catch((err) => {
+    })
+  }
 
   return (
     <div className="login">

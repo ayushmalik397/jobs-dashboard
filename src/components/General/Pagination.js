@@ -33,27 +33,19 @@ function Pagination(props) {
         />
       </div>
       <div>
-        {pgeArr?.map((ele, idx) => {
-          if (idx + 1 === props.active) {
-            return (
-              <span
-                key={idx}
-                style={{
-                  margin: "5px",
-                  background: "#43AFFF33",
-                  padding: "2px 8px",
-                }}
-              >
-                {idx + 1}
-              </span>
-            );
-          }
-          return (
-            <span key={idx} style={{ margin: "2px 8px" }}>
-              {idx + 1}
+          <>
+            {props.active >2 && <span style={{ margin: "2px 8px" }}>1 . . . {props.active - 1}</span>}
+            <span
+              style={{
+                margin: "5px",
+                background: "#43AFFF33",
+                padding: "2px 8px",
+              }}
+            >
+              {props.active}
             </span>
-          );
-        })}
+            {props.active < pgeArr.length-2 && <span style={{ margin: "2px 8px" }}>{props.active + 1} . . . {pgeArr.length}</span>}
+          </>
       </div>
       <div>
         <img
@@ -72,3 +64,26 @@ function Pagination(props) {
 }
 
 export default Pagination;
+
+// {
+//   pgeArr?.map((ele, idx) => {
+//     if (idx + 1 === props.active) {
+//       return (
+//         <span
+//           style={{
+//             margin: "5px",
+//             background: "#43AFFF33",
+//             padding: "2px 8px",
+//           }}
+//         >
+//           {idx + 1}
+//         </span>
+//       );
+//     }
+//     return (
+//       <span key={idx} style={{ margin: "2px 8px" }}>
+//         {idx + 1}
+//       </span>
+//     );
+//   });
+// }

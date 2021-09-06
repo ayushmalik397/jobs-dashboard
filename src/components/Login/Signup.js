@@ -1,12 +1,18 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import RecImage from "../../images/human-resources.png";
 import User from "../../images/user.png";
+import axios from 'axios'
 import "./login.css";
 
 function Signup() {
+  const history = useHistory();
+  const [role, setRole] = useState(0)
+  const [recClass, setRecclass] = useState("opt-box")
+  const [canClass, setCanclass] = useState("opt-box")
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [CPassword, setCPassword] = useState("");
   const [name, setName] = useState("");
   const [skills, setSkills] = useState("");
   const [bColor, setbColor] = useState("");
@@ -22,7 +28,37 @@ function Signup() {
       setbColor2("2px solid red");
       setbColor3("2px solid red");
     }
+    axios({
+      method: 'post',
+      url: 'https://jobs-api.squareboat.info/api/v1/auth/register',
+      data: {
+        userRole: role,
+        email,
+        name,
+        password,
+        confirmPassword: CPassword,
+        skills
+      }
+    }).then((res) => {
+      if(res.data.code === 201){
+        history.push("/login")
+      }else{
+        setError(true)
+      }
+    }).catch((err) => {
+      setError(true)
+    })
   }
+
+  useEffect(() => {
+    if(role === 0){
+      setRecclass("opt-box active")
+      setCanclass("opt-box")
+    }else if(role === 1){
+      setCanclass("opt-box active")
+      setRecclass("opt-box")
+    }
+  },[role])
 
   return (
     <div>
@@ -32,11 +68,11 @@ function Signup() {
           <div className="control">
             <label>I'am a*</label>
             <div style={{ display: "flex" }}>
-              <div className="opt-box">
+              <div className={recClass} onClick={() => setRole(0)}>
                 <img className="icon" src={RecImage} alt="recruter" />
                 Recruiter
               </div>
-              <div className="opt-box">
+              <div className={canClass} onClick={() => setRole(1)}>
                 <img className="icon" src={User} alt="candidate" />
                 Candidate
               </div>
@@ -94,7 +130,15 @@ function Signup() {
             <div className="pass-right" style={{ width: "47%" }}>
               <label>Confirm Password*</label>
               <div>
-                <input type="password" placeholder="Enter your password" />
+                <input type="password"
+                  value={CPassword}
+                  onFocus={() => setbColor3("2px solid #43afff")}
+                  onBlur={() => setbColor3("")}
+                  onChange={(event) => setCPassword(event.target.value)}
+                  style={{
+                    border: bColor3,
+                  }}
+                  placeholder="Enter your password" />
               </div>
             </div>
           </div>
@@ -124,9 +168,7 @@ function Signup() {
           </button>
           <p style={{ marginTop: "10px", fontSize: "14px" }}>
             Have an account?{" "}
-            <Link to="/login">
               <span style={{ color: "#43AFFF" }}>Login</span>
-            </Link>
           </p>
         </div>
       </div>

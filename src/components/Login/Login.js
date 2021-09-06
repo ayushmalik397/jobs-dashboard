@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "./login.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import axios from 'axios'
 
-function Login() {
+function Login(props) {
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [bColor, setbColor] = useState("");
@@ -15,7 +17,25 @@ function Login() {
       setbColor2("2px solid red");
       setError(true);
     }
-    console.log(email, password);
+    axios({
+      method: 'post',
+      url: 'https://jobs-api.squareboat.info/api/v1/auth/login',
+      data: {
+        email,
+        password,
+      }
+    }).then((res) => {
+      if(res.data.code === 200){
+        localStorage.setItem('token', res.data.data.token );
+        localStorage.setItem('name', res.data.data.name );
+        props.trigLogin()
+        history.push("/dashboard/recdash")
+      }else{
+        setError(true)
+      }
+    }).catch((err) => {
+      setError(true)
+    })
   }
   return (
     <div className="login">

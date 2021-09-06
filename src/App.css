@@ -38,6 +38,28 @@
   margin: 15px 0px;
 }
 
+.dash-nav {
+  float: right;
+  display: flex;
+}
+
+.logout-box {
+  display: none;
+  position: absolute;
+  right: 60px;
+  top: 60px;
+  background: white;
+  color: black;
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.log-active {
+  display: block;
+}
+
 .login-signup-btn {
   background: #43afff33 0% 0% no-repeat padding-box;
   border: 1px solid #43afff;
@@ -45,6 +67,7 @@
   opacity: 1;
   color: white;
   padding: 10px 15px;
+  cursor: pointer;
 }
 
 .content {
@@ -52,4 +75,13 @@
   position: absolute;
   top: 80px;
   width: 100%;
+}
+
+.initial {
+  padding: 5px 12px;
+  border-radius: 20px;
+  background: #d9efff;
+  color: rgb(48, 63, 96);
+  margin-right: 10px;
+  height: 30px;
 }
