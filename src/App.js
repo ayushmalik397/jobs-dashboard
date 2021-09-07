@@ -45,12 +45,18 @@ function App() {
               <Switch>
                 <Route path="/dashboard/recdash">
                   <div className="dash-nav">
-                    <Link to="/dashboard/postajob">
+                    <Link
+                      to="/dashboard/postajob"
+                      style={{
+                        marginRight: "20px",
+                        borderBottom: "3px solid blue",
+                      }}
+                    >
                       <p
                         style={{
                           color: "white",
-                          marginTop: "5px",
-                          marginRight: "10px",
+                          marginTop: "8px",
+                          fontSize: "14px",
                         }}
                       >
                         Post a Job
