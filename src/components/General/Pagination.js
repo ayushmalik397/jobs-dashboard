@@ -64,26 +64,3 @@ function Pagination(props) {
 }
 
 export default Pagination;
-
-// {
-//   pgeArr?.map((ele, idx) => {
-//     if (idx + 1 === props.active) {
-//       return (
-//         <span
-//           style={{
-//             margin: "5px",
-//             background: "#43AFFF33",
-//             padding: "2px 8px",
-//           }}
-//         >
-//           {idx + 1}
-//         </span>
-//       );
-//     }
-//     return (
-//       <span key={idx} style={{ margin: "2px 8px" }}>
-//         {idx + 1}
-//       </span>
-//     );
-//   });
-// }

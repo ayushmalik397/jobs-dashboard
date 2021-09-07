@@ -53,14 +53,18 @@ function RecruiterDash() {
     myHeaders.append("Authorization", localStorage.getItem("token"));
 
     let res = await fetch(
-      "https://jobs-api.squareboat.info/api/v1/recruiters/jobs/449b6a36-3da2-4b44-806b-060d9fceed79/candidates",
+      `https://jobs-api.squareboat.info/api/v1/recruiters/jobs/${id}/candidates`,
       {
         method: "GET",
         headers: myHeaders,
       }
     );
     let { data } = await res.json();
-    setCandArr(data);
+    if( data ) {
+      setCandArr(data);
+    } else {
+      setCandArr([]);
+    }
     setIsModal(true);
   }
   return (
